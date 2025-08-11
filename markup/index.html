@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Table</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <!-- App Component -->
+      <div class="app-container">
+        <h1>Пользователи</h1>
+
+        <!-- FilterInputs Component -->
+        <div class="filters">
+          <input type="text" placeholder="Фильтр по ФИО" class="filter-input" />
+          <input type="number" placeholder="Возраст" class="filter-input" />
+          <select class="filter-input">
+            <option value="">Все</option>
+            <option value="male">Мужской</option>
+            <option value="female">Женский</option>
+          </select>
+          <input type="text" placeholder="Телефон" class="filter-input" />
+        </div>
+
+        <!-- UserTable Component -->
+        <div class="table-container">
+          <table class="user-table">
+            <thead>
+              <!-- TableHeader Component -->
+              <tr>
+                <th data-sort="lastName">
+                  <div class="header-cell">
+                    Фамилия <span class="sort-icon">↕️</span>
+                  </div>
+                </th>
+                <th data-sort="firstName">
+                  <div class="header-cell">
+                    Имя <span class="sort-icon">↕️</span>
+                  </div>
+                </th>
+                <th data-sort="maidenName">
+                  <div class="header-cell">
+                    Отчество <span class="sort-icon">↕️</span>
+                  </div>
+                </th>
+                <th data-sort="age">
+                  <div class="header-cell">
+                    Возраст <span class="sort-icon">↕️</span>
+                  </div>
+                </th>
+                <th data-sort="gender">
+                  <div class="header-cell">
+                    Пол <span class="sort-icon">↕️</span>
+                  </div>
+                </th>
+                <th data-sort="phone">
+                  <div class="header-cell">
+                    Телефон <span class="sort-icon">↕️</span>
+                  </div>
+                </th>
+                <th>Email</th>
+                <th>Страна</th>
+                <th>Город</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- UserRow Components -->
+              <tr data-userid="1">
+                <td>Иванов</td>
+                <td>Иван</td>
+                <td>Иванович</td>
+                <td>28</td>
+                <td>муж</td>
+                <td>+7 (999) 123-45-67</td>
+                <td>ivanov@example.com</td>
+                <td>Россия</td>
+                <td>Москва</td>
+              </tr>
+              <tr data-userid="2">
+                <td>Петрова</td>
+                <td>Мария</td>
+                <td>Сергеевна</td>
+                <td>32</td>
+                <td>жен</td>
+                <td>+7 (912) 345-67-89</td>
+                <td>petrova@example.com</td>
+                <td>Россия</td>
+                <td>Санкт-Петербург</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Pagination Component -->
+        <div class="pagination">
+          <button class="pagination-button" disabled>←</button>
+          <button class="pagination-button active">1</button>
+          <button class="pagination-button">2</button>
+          <button class="pagination-button">3</button>
+          <button class="pagination-button">→</button>
+        </div>
+      </div>
+
+      <!-- UserModal Component (hidden by default) -->
+      <div class="modal-backdrop">
+        <div class="modal">
+          <button class="modal-close">×</button>
+          <div class="modal-header">
+            <img
+              src="https://via.placeholder.com/100"
+              alt="Аватар"
+              class="user-avatar"
+            />
+            <div>
+              <h2>Иванов Иван Иванович</h2>
+              <p>28 лет</p>
+            </div>
+          </div>
+          <div class="modal-body">
+            <div class="user-detail">
+              <span>Телефон:</span>
+              <span>+7 (999) 123-45-67</span>
+            </div>
+            <div class="user-detail">
+              <span>Email:</span>
+              <span>ivanov@example.com</span>
+            </div>
+            <div class="user-detail">
+              <span>Адрес:</span>
+              <span>г. Москва, ул. Пушкина, д. 10</span>
+            </div>
+            <div class="user-detail">
+              <span>Рост:</span>
+              <span>180 см</span>
+            </div>
+            <div class="user-detail">
+              <span>Вес:</span>
+              <span>75 кг</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
