@@ -12,5 +12,9 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: ['./src/setupTests.ts'],
   },
+  esbuild: {
+    target: 'esnext',
+    format: 'esm',
+  },
   base: '/info-tecs-test-ex',
 });
