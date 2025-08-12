@@ -1,4 +1,4 @@
-import { store } from '../store/store.ts';
+import { store } from '../store/store';
 import { UserTableRoadType } from '../types/components-props-types';
 import { SortingTypes } from '../const';
 
