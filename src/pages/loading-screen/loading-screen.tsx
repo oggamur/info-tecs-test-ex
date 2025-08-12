@@ -1,55 +1,32 @@
-import PropTypes from 'prop-types';
+import './loading-screen.css';
+
+interface LoadingScreenProps {
+  size?: number;
+  color?: string;
+  bgColor?: string;
+}
 
 const LoadingScreen = ({
   size = 40,
   color = '#3b82f6',
   bgColor = '#e5e7eb',
-}) => {
-  const spinnerStyle = {
-    width: size,
-    height: size,
-    border: `calc(${size}px * 0.1) solid ${bgColor}`,
-    borderTop: `calc(${size}px * 0.1) solid ${color}`,
+}: LoadingScreenProps) => {
+  const borderWidth = size * 0.1;
+
+  const spinnerStyle: React.CSSProperties = {
+    width: `${size}px`,
+    height: `${size}px`,
+    border: `${borderWidth}px solid ${bgColor}`,
+    borderTop: `${borderWidth}px solid ${color}`,
     borderRadius: '50%',
     animation: 'spin 1s linear infinite',
   };
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        pointerEvents: 'none',
-      }}
-    >
-      <div style={spinnerStyle}></div>
-
-      <style>
-        {`
-        @keyframes spin {
-          0% {
-            transform: rotate(0deg);
-          }
-          100% {
-            transform: rotate(360deg);
-          }
-        }
-      `}
-      </style>
+    <div className="loading-screen">
+      <div className="loading-screen__spinner" style={spinnerStyle}></div>
     </div>
   );
-};
-
-LoadingScreen.propTypes = {
-  size: PropTypes.number,
-  color: PropTypes.string,
-  bgColor: PropTypes.string,
 };
 
 export default LoadingScreen;

@@ -3,6 +3,7 @@ import { NameSpace } from '../../const';
 import { UsersDataState } from '../../types/state';
 import { fetchUsersAction } from '../api-actions';
 import { UserTableRoadType } from '../../types/components-props-types';
+import { SortingTypes } from '../../const';
 const initialState: UsersDataState = {
   usersData: {
     users: [],
@@ -10,6 +11,16 @@ const initialState: UsersDataState = {
     skip: 0,
     limit: 0,
   },
+  activeFilters: {
+    fullName: null,
+    age: null,
+    gender: null,
+    phone: null,
+  },
+  selectedUserId: null,
+  activeSorting: null,
+  quantityOfUsers: 0,
+  activePage: 1,
   isLoading: false,
   hasError: false,
 };
@@ -17,7 +28,32 @@ const initialState: UsersDataState = {
 export const UsersData = createSlice({
   name: NameSpace.UsersData,
   initialState,
-  reducers: {},
+  reducers: {
+    setAgeFilter: (state, action: { payload: number }) => {
+      state.activeFilters.age = action.payload;
+    },
+    setSelectedUserId: (state, action: { payload: number | null }) => {
+      state.selectedUserId = action.payload;
+    },
+    setQuantityOfUsers: (state, action: { payload: number }) => {
+      state.quantityOfUsers = action.payload;
+    },
+    setFullNameFilter: (state, action: { payload: string }) => {
+      state.activeFilters.fullName = action.payload;
+    },
+    setGenderFilter: (state, action: { payload: string }) => {
+      state.activeFilters.gender = action.payload;
+    },
+    setPhoneFilter: (state, action: { payload: string }) => {
+      state.activeFilters.phone = action.payload;
+    },
+    setActivePage: (state, action: { payload: number }) => {
+      state.activePage = action.payload;
+    },
+    setActiveSorting: (state, action: { payload: SortingTypes }) => {
+      state.activeSorting = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchUsersAction.pending, (state) => {
@@ -49,3 +85,14 @@ export const UsersData = createSlice({
       });
   },
 });
+
+export const {
+  setAgeFilter,
+  setFullNameFilter,
+  setGenderFilter,
+  setPhoneFilter,
+  setActivePage,
+  setQuantityOfUsers,
+  setActiveSorting,
+  setSelectedUserId,
+} = UsersData.actions;

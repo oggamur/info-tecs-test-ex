@@ -4,6 +4,7 @@ import UserTable from './user-table';
 import { useAppSelector } from '../hooks';
 import LoadingScreen from '../pages/loading-screen/loading-screen';
 import NoResponseErrorScreen from '../pages/no-response-screen/no-response-screen';
+import PaginationButtonsScreen from './pagination-buttons';
 
 export default function AppScreen() {
   const usersDataIsLoading = useAppSelector(getIsLoading);
@@ -21,6 +22,7 @@ export default function AppScreen() {
       <h1>Пользователи</h1>
       <FilterInputs />
       <UserTable />
+      <PaginationButtonsScreen />
     </div>
   );
 }

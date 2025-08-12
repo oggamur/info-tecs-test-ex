@@ -11,7 +11,7 @@ export const fetchUsersAction = createAsyncThunk<
     state: State;
     extra: AxiosInstance;
   }
->('fetchQuests', async (_arg, { extra: api }) => {
+>('fetchUsers', async (_arg, { extra: api }) => {
   const { data } = await api.get<UsersDataFetchType>(APIRoute.USERS_DATA);
   return data;
 });

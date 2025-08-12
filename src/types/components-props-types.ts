@@ -7,7 +7,11 @@ export type UserTableRoadType = {
   gender: 'male' | 'female';
   phone: string;
   email: string;
+  image: string;
+  height: number;
+  weight: number;
   address: {
+    address: string;
     country: string;
     city: string;
   };
