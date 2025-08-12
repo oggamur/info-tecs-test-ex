@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import AppScreen from './components/app';
+import AppScreen from './components/app.js';
 import { store } from './store/store';
 import { fetchUsersAction } from './store/api-actions';
 import { Provider } from 'react-redux';
