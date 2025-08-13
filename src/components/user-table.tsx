@@ -49,17 +49,32 @@ export default function UserTable(): JSX.Element {
     });
 
     const sortedUsers = [...filteredUsers].sort((a, b) => {
-      if (activeSorting === SortingTypes.LastName) {
+      if (activeSorting === SortingTypes.LastNameAZ) {
         return a.lastName.localeCompare(b.lastName);
       }
-      if (activeSorting === SortingTypes.FirstName) {
+      if (activeSorting === SortingTypes.LastNameZA) {
+        return b.lastName.localeCompare(a.lastName);
+      }
+      if (activeSorting === SortingTypes.FirstNameZA) {
+        return b.firstName.localeCompare(a.firstName);
+      }
+      if (activeSorting === SortingTypes.FirstNameAZ) {
         return a.firstName.localeCompare(b.firstName);
       }
-      if (activeSorting === SortingTypes.MaidenName) {
+      if (activeSorting === SortingTypes.MaidenNameZA) {
+        return b.maidenName.localeCompare(a.maidenName);
+      }
+      if (activeSorting === SortingTypes.MaidenNameAZ) {
         return a.maidenName.localeCompare(b.maidenName);
       }
-      if (activeSorting === SortingTypes.Age) {
+      if (activeSorting === SortingTypes.AgeFromLowToHigh) {
         return a.age - b.age;
+      }
+      if (activeSorting === SortingTypes.AgeFromHighToLow) {
+        return b.age - a.age;
+      }
+      if (activeSorting === null) {
+        return 0;
       }
       return 0;
     });

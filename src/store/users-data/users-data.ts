@@ -50,7 +50,7 @@ export const UsersData = createSlice({
     setActivePage: (state, action: { payload: number }) => {
       state.activePage = action.payload;
     },
-    setActiveSorting: (state, action: { payload: SortingTypes }) => {
+    setActiveSorting: (state, action: { payload: SortingTypes | null }) => {
       state.activeSorting = action.payload;
     },
   },
