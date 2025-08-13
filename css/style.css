@@ -42,7 +42,6 @@ h1 {
   text-align: center;
 }
 
-/* Filters Component */
 .filters {
   display: flex;
   gap: 10px;
@@ -58,7 +57,6 @@ h1 {
   min-width: 150px;
 }
 
-/* Table Styles */
 .table-container {
   overflow-x: auto;
   margin-bottom: 20px;
@@ -101,7 +99,6 @@ h1 {
   font-size: 0.9em;
 }
 
-/* Resizable columns */
 .user-table th::after {
   content: '';
   position: absolute;
@@ -119,7 +116,6 @@ h1 {
   opacity: 1;
 }
 
-/* Pagination Component */
 .pagination {
   display: flex;
   justify-content: center;
@@ -151,18 +147,17 @@ h1 {
   cursor: not-allowed;
 }
 
-/* Modal Component */
 .modal-backdrop {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный фон */
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000; /* Должен быть выше, чем у других элементов */
+  z-index: 1000;
 }
 
 .modal {
@@ -226,7 +221,6 @@ h1 {
   color: #555;
 }
 
-/* Error Handling */
 .error-message {
   color: var(--error);
   text-align: center;
@@ -236,7 +230,6 @@ h1 {
   margin: 20px 0;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .filters {
     flex-direction: column;
@@ -245,5 +238,35 @@ h1 {
   .modal-header {
     flex-direction: column;
     text-align: center;
+  }
+}
+
+.reset-button {
+  padding: 10px 15px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-weight: 600;
+  min-width: 150px;
+}
+
+.reset-button:hover {
+  background-color: #c0392b;
+}
+
+th[data-sorted='asc'] .sort-icon::after {
+  content: ' ↑';
+}
+
+th[data-sorted='desc'] .sort-icon::after {
+  content: ' ↓';
+}
+
+@media (max-width: 768px) {
+  .reset-button {
+    width: 100%;
   }
 }
