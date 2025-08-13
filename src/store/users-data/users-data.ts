@@ -53,6 +53,15 @@ export const UsersData = createSlice({
     setActiveSorting: (state, action: { payload: SortingTypes | null }) => {
       state.activeSorting = action.payload;
     },
+    resetFiltersAndSorting: (state) => {
+      state.activeFilters = {
+        fullName: null,
+        age: null,
+        gender: null,
+        phone: null,
+      };
+      state.activeSorting = null;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -95,4 +104,5 @@ export const {
   setQuantityOfUsers,
   setActiveSorting,
   setSelectedUserId,
+  resetFiltersAndSorting,
 } = UsersData.actions;

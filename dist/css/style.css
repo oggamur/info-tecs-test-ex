@@ -247,3 +247,35 @@ h1 {
     text-align: center;
   }
 }
+
+.reset-button {
+  padding: 10px 15px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-weight: 600;
+  min-width: 150px;
+}
+
+.reset-button:hover {
+  background-color: #c0392b;
+}
+
+/* Active sort indicator */
+th[data-sorted='asc'] .sort-icon::after {
+  content: ' ↑';
+}
+
+th[data-sorted='desc'] .sort-icon::after {
+  content: ' ↓';
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .reset-button {
+    width: 100%;
+  }
+}
