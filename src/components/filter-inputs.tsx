@@ -5,6 +5,7 @@ import {
   setFullNameFilter,
   setPhoneFilter,
   resetFiltersAndSorting,
+  setActivePage,
 } from '../store/users-data/users-data';
 import { useRef, useEffect } from 'react';
 import debounce from 'lodash.debounce';
@@ -34,10 +35,12 @@ export default function FilterInputs() {
 
   const handleFullNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     debouncedFullNameFilter(e.target.value);
+    dispatch(setActivePage(1));
   };
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     debouncedPhoneFilter(e.target.value);
+    dispatch(setActivePage(1));
   };
 
   const fullNameRef = useRef<HTMLInputElement>(null);
@@ -58,12 +61,18 @@ export default function FilterInputs() {
         type="number"
         placeholder="Возраст"
         className="filter-input"
-        onChange={(e) => dispatch(setAgeFilter(Number(e.target.value)))}
+        onChange={(e) => {
+          dispatch(setAgeFilter(Number(e.target.value)));
+          dispatch(setActivePage(1));
+        }}
         ref={ageRef}
       />
       <select
         className="filter-input"
-        onChange={(e) => dispatch(setGenderFilter(e.target.value))}
+        onChange={(e) => {
+          dispatch(setGenderFilter(e.target.value));
+          dispatch(setActivePage(1));
+        }}
         ref={genderRef}
       >
         <option value="">Все</option>
